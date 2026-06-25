@@ -52,11 +52,13 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	class UInputAction* JumpAction;
 	
+	//TObjectPtr<class T>
 	
 protected:
 	void InputActionMove(const struct FInputActionValue& Value);
 	void InputActionLook(const struct FInputActionValue& Value);
 	void InputActionJump(const struct FInputActionValue& Value);
+	
 		
 	
 	

@@ -1,4 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
+#include "PlayerCharacter.h"
+
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
@@ -6,9 +8,10 @@
 #include "GameFramework/PlayerController.h"
 #include "Engine/LocalPlayer.h"
 
-#include "PlayerCharacter.h"
+
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -37,6 +40,7 @@ Camera는 false(SpringArm의 회전을 그대로 상속)로 둡니다.
 
 	// 몸은 컨트롤러 yaw에 맞춰 회전 (TPS 스타일)
 	bUseControllerRotationYaw = true;
+	
 }
 
 // Called when the game starts or when spawned
@@ -88,9 +92,11 @@ void APlayerCharacter::InputActionMove(const FInputActionValue& Value)
 	}
 
 	// 카메라 yaw 방향 기준으로 forward/right 계산
-	const FRotator Rotation = Controller->GetControlRotation();
+	const FRotator Rotation = Controller->GetControlRotation(); // Controller 카메라랑 같은 것 
+	
 	const FRotator YawRotation(0, Rotation.Yaw, 0);  // pitch/roll 0, yaw만
-
+	
+	// 카메라 기준 방향
 	const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 	const FVector RightDirection   = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 
@@ -108,4 +114,6 @@ void APlayerCharacter::InputActionLook(const FInputActionValue& Value)
 void APlayerCharacter::InputActionJump(const FInputActionValue& Value)
 {
 	Jump();   // ACharacter가 기본 제공하는 점프 함수
+	
 }
+
