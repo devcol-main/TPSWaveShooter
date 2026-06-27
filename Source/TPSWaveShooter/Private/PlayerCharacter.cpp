@@ -5,6 +5,7 @@
 #include "EnhancedInputSubsystems.h"
 
 #include "InputActionValue.h"
+#include "PlayerInputConfigDataAsset.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/LocalPlayer.h"
 
@@ -54,9 +55,16 @@ void APlayerCharacter::BeginPlay()
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem =
 			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PC->GetLocalPlayer()))
 		{
+			/*
 			if (InputMappingContext)
 			{
 				Subsystem->AddMappingContext(InputMappingContext, 0);
+			}
+			*/
+			
+			if (PlayerInputConfig && PlayerInputConfig->InputMappingContext)
+			{
+				Subsystem->AddMappingContext(PlayerInputConfig->InputMappingContext, 0);
 			}
 		}
 	}
@@ -75,11 +83,21 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	if (!PlayerInputConfig) return;
+	
 	if (UEnhancedInputComponent* EIC = Cast<UEnhancedInputComponent>(PlayerInputComponent))
 	{
+		/*
 		if (MoveAction) EIC->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APlayerCharacter::InputActionMove);
 		if (LookAction) EIC->BindAction(LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::InputActionLook);
 		if (JumpAction) EIC->BindAction(JumpAction, ETriggerEvent::Started, this, &APlayerCharacter::InputActionJump);
+		*/
+		if (PlayerInputConfig->MoveAction)
+			EIC->BindAction(PlayerInputConfig->MoveAction, ETriggerEvent::Triggered, this, &APlayerCharacter::InputActionMove);
+		if (PlayerInputConfig->LookAction)
+			EIC->BindAction(PlayerInputConfig->LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::InputActionLook);
+		if (PlayerInputConfig->JumpAction)
+			EIC->BindAction(PlayerInputConfig->JumpAction, ETriggerEvent::Started, this, &APlayerCharacter::InputActionJump);
 	}
 }
 

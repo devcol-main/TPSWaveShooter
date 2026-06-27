@@ -18,14 +18,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c446de-ef3e-4880-8c31-945df99ad02d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPSWaveShooter.dir/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPSWaveShooter.dir/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPSWaveShooter.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPSWaveShooter/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TPSWaveShooter/Private/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TPSWaveShooter/Private/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TPSWaveShooter/Public/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TPSWaveShooter/Public/PlayerCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPSWaveShooter.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TPSWaveShooter.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/BP_PlayerCharacter.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Core/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Core/BP_GameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/GameMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/GameMap.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +208,7 @@
       <option name="presentableId" value="Default" />
       <updated>1782096783879</updated>
       <workItem from="1782096789847" duration="67000" />
-      <workItem from="1782364926074" duration="1001000" />
+      <workItem from="1782364926074" duration="2811000" />
     </task>
     <servers />
   </component>

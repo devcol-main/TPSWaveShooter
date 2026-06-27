@@ -39,7 +39,8 @@ public:
 	UPROPERTY(VisibleAnywhere, Category="Camera")
 	class UCameraComponent* CameraComponent;
 	
-	// Input
+	// Input -> UPlayerInputConfigDataAsset
+	/*
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	class UInputMappingContext* InputMappingContext;
 	
@@ -51,8 +52,11 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	class UInputAction* JumpAction;
+	*/
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	class UPlayerInputConfigDataAsset* PlayerInputConfig;
 	
-	//TObjectPtr<class T>
+	
 	
 protected:
 	void InputActionMove(const struct FInputActionValue& Value);
