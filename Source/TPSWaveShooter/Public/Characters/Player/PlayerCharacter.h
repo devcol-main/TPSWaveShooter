@@ -4,7 +4,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "WeaponDataAsset.h" // 이거 헤더 추가가 맞는지 모르겠다 + 추후 캐릭터 말고 다른 클래스로 이동 예정
+#include "Weapons/WeaponDataAsset.h" // 이거 헤더 추가가 맞는지 모르겠다 + 추후 캐릭터 말고 다른 클래스로 이동 예정
 #include "GameFramework/Character.h"
 #include "PlayerCharacter.generated.h"
 

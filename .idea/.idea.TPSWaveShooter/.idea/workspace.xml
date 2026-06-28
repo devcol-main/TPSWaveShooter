@@ -18,10 +18,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c446de-ef3e-4880-8c31-945df99ad02d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/BP_PlayerCharacter.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Core/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Core/BP_GameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/GameMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/GameMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TPSWaveShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TPSWaveShooter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TPSWaveShooter/Private/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TPSWaveShooter/Private/Characters/Player/PlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TPSWaveShooter/Private/PlayerInputConfigDataAsset.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TPSWaveShooter/Private/Input/PlayerInputConfigDataAsset.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TPSWaveShooter/Private/WeaponDataAsset.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TPSWaveShooter/Private/Weapons/WeaponDataAsset.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TPSWaveShooter/Public/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TPSWaveShooter/Public/Characters/Player/PlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TPSWaveShooter/Public/PlayerInputConfigDataAsset.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TPSWaveShooter/Public/Input/PlayerInputConfigDataAsset.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TPSWaveShooter/Public/WeaponDataAsset.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TPSWaveShooter/Public/Weapons/WeaponDataAsset.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,24 +41,24 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="16" />
+    <option name="cachedIndexableFilesCount" value="9" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "devcol-main"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;devcol-main&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/devcol-main/TPSWaveShooter.git",
-    "accountId": "e00ce279-d3e3-4eca-be81-18526d02c4e4"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/devcol-main/TPSWaveShooter.git&quot;,
+    &quot;accountId&quot;: &quot;e00ce279-d3e3-4eca-be81-18526d02c4e4&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="cidr-memory-view://0" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -62,10 +66,72 @@
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000259444286" />
+      <entry key="MS500" value="1.0303954719143538" />
+      <entry key="S2" value="1.4258709202702233" />
+      <entry key="S5" value="1.8534623259278886" />
+      <entry key="S10" value="2.255404512960893" />
+      <entry key="S30" value="2.987239005176211" />
+      <entry key="S60" value="3.386886210766035" />
+      <entry key="M2" value="3.6592471453778868" />
+      <entry key="M5" value="3.8542686017727386" />
+      <entry key="M10" value="3.925447247908658" />
+      <entry key="M15" value="3.9499141900164534" />
+      <entry key="M30" value="3.974762784951594" />
+      <entry key="H1" value="3.9873323743580484" />
+      <entry key="H2" value="3.993653877118932" />
+      <entry key="H4" value="3.9968238540744565" />
+      <entry key="D1" value="3.9994702133521223" />
+      <entry key="W1" value="3.9999243056794533" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="4.5674023469103125E-120" />
+      <entry key="MS500" value="1.4503918924159642E-24" />
+      <entry key="S2" value="1.634678899682218E-6" />
+      <entry key="S5" value="0.007251319677379809" />
+      <entry key="S10" value="0.12016359334114893" />
+      <entry key="S30" value="0.7829466883363285" />
+      <entry key="S60" value="1.2512801520595402" />
+      <entry key="M2" value="1.5819240933110612" />
+      <entry key="M5" value="1.820919141118926" />
+      <entry key="M10" value="1.908358936595659" />
+      <entry key="M15" value="1.9384293708910796" />
+      <entry key="M30" value="1.9689738990825836" />
+      <entry key="H1" value="1.9844262809342668" />
+      <entry key="H2" value="1.9921979139082966" />
+      <entry key="H4" value="1.9960951428630904" />
+      <entry key="D1" value="1.999348660108681" />
+      <entry key="W1" value="1.9999069384472106" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.1312145854528834" />
+      <entry key="MS500" value="0.6661879750224152" />
+      <entry key="S2" value="0.9383226415165554" />
+      <entry key="S5" value="1.3440932290858236" />
+      <entry key="S10" value="1.9651831334001142" />
+      <entry key="S30" value="3.526041791205164" />
+      <entry key="S60" value="4.4844329696432546" />
+      <entry key="M2" value="5.153393733504273" />
+      <entry key="M5" value="5.636944636723584" />
+      <entry key="M10" value="5.8141129608573054" />
+      <entry key="M15" value="5.875083753938908" />
+      <entry key="M30" value="5.937040268529965" />
+      <entry key="H1" value="5.9683936262603705" />
+      <entry key="H2" value="5.984165046793191" />
+      <entry key="H4" value="5.992074564326206" />
+      <entry key="D1" value="5.998677987140537" />
+      <entry key="W1" value="5.999811113892566" />
+    </decayedShown>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="3FcCLqktcRK2tB0CFo5UstYWSId" />
   <component name="ProjectSessionTemplates">
     <option name="panelTemplate">
@@ -108,7 +174,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CodeLensConfigurable",
+    "settings.editor.selected.configurable": "UnrealLinkOptionsId",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -196,7 +262,10 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
   </component>
@@ -209,6 +278,8 @@
       <updated>1782096783879</updated>
       <workItem from="1782096789847" duration="67000" />
       <workItem from="1782364926074" duration="2811000" />
+      <workItem from="1782660528967" duration="9000" />
+      <workItem from="1782660561857" duration="725000" />
     </task>
     <servers />
   </component>
@@ -236,5 +307,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

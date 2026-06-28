@@ -1,15 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-#include "PlayerCharacter.h"
+#include "Characters/Player/PlayerCharacter.h"
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
 #include "InputActionValue.h"
-#include "PlayerInputConfigDataAsset.h"
+#include "Input/PlayerInputConfigDataAsset.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/LocalPlayer.h"
 
-
+//#include "Weapons/WeaponDataAsset.h" PlayerCharacter.h 에서 선언함.
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
