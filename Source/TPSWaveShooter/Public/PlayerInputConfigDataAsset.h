@@ -27,6 +27,20 @@ public:
 	UPROPERTY(EditAnywhere, Category="Input|Actions")
 	class UInputAction* JumpAction;	
 	
+	UPROPERTY(EditAnywhere, Category="Input|Actions")
+	class UInputAction* FireAction;
+	
+	//
+	UPROPERTY(EditAnywhere, Category="Input|Actions")
+	class UInputAction* SniperRifleAction;
+	
+	UPROPERTY(EditAnywhere, Category="Input|Actions")
+	class UInputAction* GrenadeLauncherAction;
+	
+	UPROPERTY(EditAnywhere, Category="Input|Actions")
+	class UInputAction* MachineGunAction;
+	
+	
 	//TObjectPtr<class T>
 	
 };

@@ -42,6 +42,15 @@ Camera는 false(SpringArm의 회전을 그대로 상속)로 둡니다.
 	// 몸은 컨트롤러 yaw에 맞춰 회전 (TPS 스타일)
 	bUseControllerRotationYaw = true;
 	
+	// 무기 메쉬
+	EquippedWeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("EquippedWeaponMesh"));
+	
+	//EquippedWeaponMesh->SetupAttachment(GetMesh(), TEXT("hand_r"));
+	EquippedWeaponMesh->SetupAttachment(GetMesh(), WeaponAttachSocketName);
+	
+	EquippedWeaponMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	EquippedWeaponMesh->SetVisibility(false);
+	
 }
 
 // Called when the game starts or when spawned
@@ -92,12 +101,26 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		if (LookAction) EIC->BindAction(LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::InputActionLook);
 		if (JumpAction) EIC->BindAction(JumpAction, ETriggerEvent::Started, this, &APlayerCharacter::InputActionJump);
 		*/
+		
+		// Movements
 		if (PlayerInputConfig->MoveAction)
 			EIC->BindAction(PlayerInputConfig->MoveAction, ETriggerEvent::Triggered, this, &APlayerCharacter::InputActionMove);
 		if (PlayerInputConfig->LookAction)
 			EIC->BindAction(PlayerInputConfig->LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::InputActionLook);
 		if (PlayerInputConfig->JumpAction)
 			EIC->BindAction(PlayerInputConfig->JumpAction, ETriggerEvent::Started, this, &APlayerCharacter::InputActionJump);
+		
+		//
+		if (PlayerInputConfig->FireAction)
+			EIC->BindAction(PlayerInputConfig->FireAction, ETriggerEvent::Started, this, &APlayerCharacter::InputActionFire);
+		
+		// Weapon Actions
+		if (PlayerInputConfig->SniperRifleAction)
+			EIC->BindAction(PlayerInputConfig->SniperRifleAction, ETriggerEvent::Started, this, &APlayerCharacter::InputActionSniperRifle);
+		if (PlayerInputConfig->GrenadeLauncherAction)
+			EIC->BindAction(PlayerInputConfig->GrenadeLauncherAction, ETriggerEvent::Started, this, &APlayerCharacter::InputActionGrenadeLauncher);
+		if (PlayerInputConfig->MachineGunAction)
+			EIC->BindAction(PlayerInputConfig->MachineGunAction, ETriggerEvent::Started, this, &APlayerCharacter::InputActionMachineGun);
 	}
 }
 
@@ -129,9 +152,95 @@ void APlayerCharacter::InputActionLook(const FInputActionValue& Value)
 	AddControllerPitchInput(LookVec.Y);
 }
 
+// TODO: 추후 점프 관련 로직 설정하자
 void APlayerCharacter::InputActionJump(const FInputActionValue& Value)
 {
 	Jump();   // ACharacter가 기본 제공하는 점프 함수
+	
+}
+
+void APlayerCharacter::InputActionFire(const struct FInputActionValue& Value)
+{
+	FireGun();
+}
+
+void APlayerCharacter::InputActionSniperRifle(const struct FInputActionValue& Value)
+{
+	TakeSniperRife();
+}
+
+void APlayerCharacter::InputActionGrenadeLauncher(const struct FInputActionValue& Value)
+{
+	TakeGrenadeLauncher();
+}
+
+void APlayerCharacter::InputActionMachineGun(const struct FInputActionValue& Value)
+{
+	TakeMachineGun();
+}
+
+
+void APlayerCharacter::TakeSniperRife()
+{
+	EquipWeapon(SniperRifleWeaponDataAsset);
+}
+
+void APlayerCharacter::TakeGrenadeLauncher()
+{
+	EquipWeapon(GrenadeLauncherWeaponDataAsset);
+}
+
+void APlayerCharacter::TakeMachineGun()
+{
+	EquipWeapon(MachineGunWeaponDataAsset);
+}
+
+void APlayerCharacter::EquipWeapon(class UWeaponDataAsset* WeaponDataAsset)
+{
+	if (!WeaponDataAsset) return;
+	
+	CurrentWeaponType = WeaponDataAsset->WeaponType;
+	
+	if (WeaponDataAsset->Mesh)
+	{
+		EquippedWeaponMesh->SetSkeletalMesh(WeaponDataAsset->Mesh);
+	}
+	
+	EquippedWeaponMesh->SetRelativeTransform(WeaponDataAsset->AttachTransform);
+	EquippedWeaponMesh->SetVisibility(true);
+}
+
+// TODO: 현재 카메라에서만 나가는데 추후, 총의 위치에서도 나가게 해서 확인 하는 방식 추가하자
+// TODO: 해당 코드는 거의 반복해서 쓰여진다고하니 추후 완성되면 정리 + Template 프로젝트로 올리자
+void APlayerCharacter::FireGun()
+{
+	// TODO: 우선은 저격총만인데, 추후 다른 총들도 넣어야함
+	if (CurrentWeaponType != EWeaponType::SniperRifle) return;
+	
+	if (!SniperRifleWeaponDataAsset) return;
+	
+	// 카메라 위치에서 전방 위치까지 라인 트레이스
+	
+	FVector LineTraceStart = CameraComponent->GetComponentLocation();
+	FVector LineTraceEnd = LineTraceStart + CameraComponent->GetForwardVector() * LineTraceRange;
+	
+	FHitResult LineTraceHitResult;
+	FCollisionQueryParams TraceParams;
+	TraceParams.AddIgnoredActor(this); // 자신 무시
+	
+	bool bHit = GetWorld()->LineTraceSingleByChannel(
+		LineTraceHitResult, LineTraceStart, LineTraceEnd, ECC_Visibility, TraceParams);
+	
+	// 디버그 시각화
+	DrawDebugLine(GetWorld(), LineTraceStart, LineTraceEnd, FColor::Red, false, 0.5f,0, 2.0f);
+	
+	if (bHit && LineTraceHitResult.GetActor())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("LineTrace Hit Actor: %s | Damage: %d"), 
+			*LineTraceHitResult.GetActor()->GetName(), SniperRifleWeaponDataAsset->Damage);
+		
+		DrawDebugSphere(GetWorld(), LineTraceHitResult.ImpactNormal, 15.0f, 12, FColor::Yellow, false, 0.5f);
+	}
 	
 }
 
