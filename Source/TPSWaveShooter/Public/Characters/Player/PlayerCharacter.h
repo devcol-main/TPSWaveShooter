@@ -115,5 +115,8 @@ protected:
 	
 	void FireGun();
 
+public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=CATEGORY_HEALTH)
+	class UHealthComponent* HealthComp;
 	
 };

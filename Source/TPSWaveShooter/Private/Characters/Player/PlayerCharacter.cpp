@@ -1,18 +1,19 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "Characters/Player/PlayerCharacter.h"
+#include "Engine/LocalPlayer.h"
 
+//
+#include "GameFramework/PlayerController.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-
 #include "InputActionValue.h"
 #include "Input/PlayerInputConfigDataAsset.h"
-#include "GameFramework/PlayerController.h"
-#include "Engine/LocalPlayer.h"
 
 //#include "Weapons/WeaponDataAsset.h" PlayerCharacter.h 에서 선언함.
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
-
+//
+#include "Components/HealthComponent.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -50,6 +51,8 @@ Camera는 false(SpringArm의 회전을 그대로 상속)로 둡니다.
 	
 	EquippedWeaponMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	EquippedWeaponMesh->SetVisibility(false);
+	
+	HealthComp = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComp"));
 	
 }
 
